@@ -1,0 +1,17 @@
+<div class="folder-container">
+  <form action="/add-folder" method="POST">
+    <input
+      type="text"
+      name="newFolder"
+      id="newFolder"
+      placeholder="New Folder"
+      required
+    />
+    <button type="submit">Add Folder</button>
+  </form>
+  <% if (folders && folders.length > 0) { %> <% folders.map((folder) => { %>
+  <h1><%= folder.name %></h1>
+  <% }) %> <% } else { %>
+  <h1>No folders available.</h1>
+  <% } %>
+</div>

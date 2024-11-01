@@ -32,6 +32,7 @@ model Folder {
   id     Int    @id @default(autoincrement())
   user   User   @relation(fields: [userId], references: [id])
   userId Int
+  name String
   files  File[]
   size   Int
 }

@@ -116,6 +116,7 @@ footer {
   margin-top: 1rem;
   width: 30%;
   border: none;
+  margin-bottom: 1rem;
   transition: background-color, 300ms ease;
 }
 

@@ -24,7 +24,7 @@ const validateSignUp = [
 ];
 
 async function signUpGet(req, res, next) {
-  res.render("index", { errors: [], data: {} });
+  res.render("index", { errors: [], data: {}, folders: {} });
 }
 
 async function signUpPost(req, res, next) {
@@ -35,7 +35,7 @@ async function signUpPost(req, res, next) {
     console.log(errors);
     return res
       .status(400)
-      .render("index", { errors: errors.array(), data: req.body });
+      .render("index", { errors: errors.array(), data: req.body, folders: {} });
   }
 
   const username = req.body.username;
@@ -43,10 +43,11 @@ async function signUpPost(req, res, next) {
 
   try {
     const password = await bcrypt.hash(plainPassword, 10);
-    await db.createUser(username, password);
+    const user = await db.createUser(username, password);
+    console.log("User created", user);
     res.redirect("/login");
   } catch (err) {
-    return next(err);
+    res.status(500).send("Error signing up.");
   }
 }
 

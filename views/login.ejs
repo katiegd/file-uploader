@@ -12,14 +12,17 @@
       <div class="main-content">
         <form action="/login" method="POST" class="sign-up-form">
           <label for="username">Username:</label>
-          <input type="text" name="username" id="username" />
+          <input type="text" name="username" id="username" required />
           <label for="username">Password:</label>
-          <input type="password" name="password" id="password" />
+          <input type="password" name="password" id="password" required />
+          <% if(message) { %>
+          <div class="err"><%=message%></div>
+          <% } %>
           <button type="submit" class="sign-up-btn">Log In</button>
+          <div class="login">
+            Need to register? <a href="/signup">Sign up here.</a>
+          </div>
         </form>
-        <div class="login">
-          Need to register? <a href="/signup">Sign up here.</a>
-        </div>
       </div>
       <%- include("partials/footer") %>
     </div>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Uploader</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <%- include("partials/navbar") %>
+      <div class="main-content">
+        <form action="/login" method="POST" class="sign-up-form">
+          <label for="username">Username:</label>
+          <input type="text" name="username" id="username" />
+          <label for="username">Password:</label>
+          <input type="password" name="password" id="password" />
+          <button type="submit" class="sign-up-btn">Log In</button>
+        </form>
+        <div class="login">
+          Need to register? <a href="/signup">Sign up here.</a>
+        </div>
+      </div>
+      <%- include("partials/footer") %>
+    </div>
+  </body>
+</html>

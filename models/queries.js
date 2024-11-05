@@ -57,9 +57,19 @@ async function createNewFolder(userId, name) {
   });
 }
 
+async function existingFolder(userId, folderName) {
+  await prisma.folder.findFirst({
+    where: {
+      id: userId,
+      name: folderName,
+    },
+  });
+}
+
 module.exports = {
   createUser,
   findUser,
   findUserId,
   createNewFolder,
+  existingFolder,
 };

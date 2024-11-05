@@ -1,13 +1,28 @@
 const db = require("../models/queries");
 
 async function newFolderPost(req, res, next) {
+  const currentUser = res.locals.currentUser;
   const name = req.body.newFolder;
-  const userId = res.locals.id;
+  const userId = currentUser.id;
 
-  const user = await db.findUserId(userId);
-  await db.createNewFolder(userId, name);
+  try {
+    const existingFolder = await db.existingFolder(userId, name);
+    console.log(existingFolder);
+    if (existingFolder) {
+      return res.render("index", {
+        folders: currentUser.folders,
+        files: currentUser.files,
+        error: "A folder with this name already exists.",
+      });
+    }
 
-  res.render("index", { folders: user.folders, files: user.files });
+    await db.createNewFolder(userId, name);
+
+    res.redirect("/");
+  } catch (err) {
+    console.error("Error creating new folder.", err);
+    next(err);
+  }
 }
 
 module.exports = {

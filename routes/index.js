@@ -1,9 +1,8 @@
 const express = require("express");
 
 const route = express();
+const indexController = require("../controllers/indexController");
 
-route.get("/", (req, res) => {
-  res.render("index", { errors: [], data: {}, folders: req.user.folders });
-});
+route.get("/", indexController.indexGet);
 
 module.exports = route;

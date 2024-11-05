@@ -11,9 +11,23 @@
       <%- include("partials/navbar") %>
       <div class="main-content">
         <% if (currentUser) { %>
-        <h1>Welcome <%=currentUser.username%></h1>
-        <%- include("partials/folders") %> <% } else { %> <%-
-        include("partials/signup-form") %> <% } %>
+        <div class="user-folders">
+          <div class="header-folder-form">
+            <h1>Welcome <%=currentUser.username%></h1>
+            <form action="/new/folder" method="POST">
+              <input
+                type="text"
+                name="newFolder"
+                id="newFolder"
+                placeholder="New Folder"
+                required
+              />
+              <button type="submit">Add Folder</button>
+            </form>
+          </div>
+          <%- include("partials/folders") %> <% } else { %> <%-
+          include("partials/signup-form") %> <% } %>
+        </div>
       </div>
       <%- include("partials/footer") %>
     </div>

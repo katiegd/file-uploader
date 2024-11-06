@@ -3,6 +3,7 @@
   <div class="header-logo"></div>
   <div class="links">
     <% if (currentUser) { %>
+    <p><%=currentUser.username %></p>
     <a href="/logout">Log Out</a>
     <% } else { %>
     <a href="/signup">Sign Up</a>

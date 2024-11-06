@@ -13,7 +13,7 @@
         <% if (currentUser) { %>
         <div class="user-folders">
           <div class="header-folder-form">
-            <h1>Welcome <%=currentUser.username%></h1>
+            <h1>Welcome, <%=currentUser.username%></h1>
             <form action="/new/folder" method="POST">
               <input
                 type="text"

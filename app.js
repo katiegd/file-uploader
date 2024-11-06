@@ -11,7 +11,9 @@ const app = express();
 const indexRouter = require("./routes/index");
 const signUpRouter = require("./routes/signup");
 const loginRouter = require("./routes/login");
-const newRoutes = require("./routes/new");
+const newRouter = require("./routes/new");
+const deleteRouter = require("./routes/delete");
+const folderRouter = require("./routes/folders");
 
 // Set up views path and ejs view engine
 app.set("views", path.join(__dirname, "views"));
@@ -40,7 +42,6 @@ app.use(express.urlencoded({ extended: false })); // For form data
 
 // Current user middleware
 app.use((req, res, next) => {
-  console.log(res.locals);
   res.locals.currentUser = req.user;
   console.log(res.locals.currentUser);
   next();
@@ -49,7 +50,9 @@ app.use((req, res, next) => {
 app.use("/", indexRouter);
 app.use("/signup", signUpRouter);
 app.use("/login", loginRouter);
-app.use("/new", newRoutes);
+app.use("/new", newRouter);
+app.use("/delete", deleteRouter);
+app.use("/folder", folderRouter);
 
 app.get("/logout", (req, res, next) => {
   req.logout((err) => {

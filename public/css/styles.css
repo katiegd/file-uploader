@@ -1,14 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Outfit:wght@100..900&display=swap");
 :root {
   --color-100: hsla(210, 100%, 14%, 0.8);
-  --color-200: hsla(210, 100%, 24%, 0.8);
-  --color-300: hsla(210, 100%, 34%, 0.8);
-  --color-400: hsla(210, 100%, 44%, 0.8);
-  --color-500: hsla(210, 100%, 54%, 1);
-  --color-600: hsla(210, 100%, 64%, 1);
+  --color-200: hsla(207, 100%, 24%, 0.8);
+  --color-300: hsla(210, 80%, 34%, 0.8);
+  --color-400: hsla(210, 80%, 44%, 0.8);
+  --color-500: hsla(210, 60%, 54%, 1);
+  --color-600: hsla(210, 60%, 64%, 1);
   --color-700: hsla(210, 100%, 74%, 1);
   --color-800: hsla(210, 100%, 84%, 1);
   --color-900: hsla(210, 100%, 94%, 1);
+  --color-950: hsla(210, 100%, 96%, 0.9);
 
   --err: hsl(0, 100%, 35%);
 }
@@ -139,39 +140,4 @@ footer {
 
 .login a:hover {
   text-decoration: underline;
-}
-
-.user-folders {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color: hsla(210, 100%, 84%, 0.4);
-  padding: 1rem 2rem 2rem 2rem;
-  border-radius: 1rem;
-}
-
-.header-folder-form {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0rem 1rem;
-  border-radius: 1rem;
-}
-
-.folder-container {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.folder-name {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin: 0;
-}
-
-.folder-item {
-  background-color: var(--color-900);
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
 }

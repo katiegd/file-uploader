@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Uploader</title>
+    <link rel="stylesheet" href="/css/folders.css" />
+  </head>
+  <body>
+    <div class="container">
+      <%- include("partials/navbar") %>
+      <div class="main-content">
+        <% if (currentUser) { %>
+            
+        <div class="user-folders">
+          <div class="header-folder-form">
+            <div class="name-return">
+                <a href="/"><img src="/images/return.svg" class="icon" alt="Go Back"></a>
+                <h1><%=folder.name%></h1>
+            </div>
+            <form action="/upload" method="post"><button type="submit" class="upload-btn">Upload</button></form>
+            </div>
+            <div class="folder-headers">
+                <div class="header-name">Name</div>
+                <div class="header-modified">Modified</div>
+                <div class="header-size">Size</div>
+              </div>
+            <% if(folder.files && folder.files.length > 0) { %>
+                <% folder.files.map((file, index) => { %>
+                    <h1><%=file.name%></h1>
+                    <% }) %> <% } else { %>
+                        <div class="no-folders">
+                          <p class="message">No files available.</p>
+                        </div>
+                        <% } %>
+                        <% } %>
+      </div>
+      <%- include("partials/footer") %>
+    </div>
+  </body>
+</html>

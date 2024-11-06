@@ -1,0 +1,157 @@
+@import "styles.css";
+
+.user-folders {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: hsla(210, 100%, 84%, 0.2);
+  box-shadow: rgba(99, 99, 99, 0.1) 0px 0px 2px 1px;
+  padding: 1rem 2rem 2rem 2rem;
+  border-radius: 1rem;
+  height: calc(100vh - 15rem);
+}
+
+.header-folder-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 1rem;
+}
+
+.header-folder-form form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-folder-form input {
+  background-color: var(--color-900);
+  border: none;
+  box-shadow: rgba(25, 27, 62, 0.9) 0px 0px 1px 0px;
+  color: var(--color-200);
+  height: 1.5rem;
+  font-family: "Lexend", sans-serif;
+  font-size: 1rem;
+  padding: 0.25rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.new-folder-submit {
+  margin-left: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-200);
+  color: var(--color-900);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.25rem;
+  font-size: 2rem;
+  border: none;
+}
+
+.upload-btn {
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  margin-left: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-200);
+  color: var(--color-900);
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border: none;
+}
+
+.new-folder-submit:hover,
+.upload-btn:hover {
+  cursor: pointer;
+  background-color: var(--color-400);
+}
+
+.folder-name {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.folder-item:hover {
+  cursor: pointer;
+  background-color: var(--color-950);
+  border: 1px solid var(--color-800);
+}
+
+.no-folders {
+  display: flex;
+  justify-content: center;
+}
+
+.folder-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.folder-headers {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  align-items: center;
+  font-weight: bold;
+  border-bottom: 2px solid var(--color-500);
+  background-color: var(--color-800);
+  padding: 1rem;
+}
+
+.folder-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  align-items: center;
+  font-size: 0.8rem;
+  padding: 0 1rem;
+  background-color: var(--color-900);
+  margin: 0;
+  border: 1px solid var(--color-900);
+}
+
+.folder-buttons {
+  display: flex;
+  justify-content: end;
+}
+
+.folder-buttons button {
+  background-color: transparent;
+  border: none;
+}
+
+.action-svg,
+.icon {
+  background-color: transparent;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.action-svg:hover {
+  cursor: pointer;
+  background-color: var(--color-800);
+}
+
+.folder-link {
+  text-decoration: none;
+  color: var(--color-200);
+}
+
+.name-return {
+  display: flex;
+  align-items: center;
+}
+
+.name-return img {
+  width: 2rem;
+  height: 2rem;
+}

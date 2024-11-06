@@ -7,7 +7,6 @@ async function newFolderPost(req, res, next) {
 
   try {
     const existingFolder = await db.existingFolder(userId, name);
-    console.log(existingFolder);
     if (existingFolder) {
       return res.render("index", {
         folders: currentUser.folders,

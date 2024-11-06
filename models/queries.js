@@ -32,14 +32,28 @@ async function createUser(username, password) {
 async function findUser(username) {
   return await prisma.user.findUnique({
     where: { username: username },
-    include: { folders: true, files: true },
+    include: {
+      folders: {
+        orderBy: {
+          createdAt: "desc",
+        },
+      },
+      files: true,
+    },
   });
 }
 
 async function findUserId(userId) {
   return await prisma.user.findUnique({
     where: { id: userId },
-    include: { folders: true, files: true },
+    include: {
+      folders: {
+        orderBy: {
+          createdAt: "desc",
+        },
+      },
+      files: true,
+    },
   });
 }
 
@@ -66,10 +80,31 @@ async function existingFolder(userId, folderName) {
   });
 }
 
+async function deleteFolder(userId, folderId) {
+  await prisma.folder.delete({
+    where: {
+      id: folderId,
+      userId: userId,
+    },
+  });
+}
+
+async function findFolder(folderId, userId) {
+  return await prisma.folder.findFirst({
+    where: {
+      id: folderId,
+      userId: userId,
+    },
+    include: { files: true },
+  });
+}
+
 module.exports = {
   createUser,
   findUser,
   findUserId,
   createNewFolder,
+  findFolder,
   existingFolder,
+  deleteFolder,
 };

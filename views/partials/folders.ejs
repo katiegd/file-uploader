@@ -1,9 +1,32 @@
 <div class="folder-container">
-  <% if (folders && folders.length > 0) { %> <% folders.map((folder) => { %>
-  <div class="folder-item">
-    <p class="folder-name"><%= folder.name %></p>
+  <div class="folder-headers">
+    <div class="header-name">Name</div>
+    <div class="header-modified">Modified</div>
+    <div class="header-size">Size</div>
   </div>
+  <% if (folders && folders.length > 0) { %> <% folders.map((folder, index) => {
+  %>
+  <a href="/folder/<%=folder.id%>" class="folder-link"
+    ><div class="folder-item">
+      <p class="folder-name">
+        <img src="/images/folder.svg" class="icon" alt="" /> <%= folder.name %>
+      </p>
+      <p class="folder-updated"><%= folderUpdate[index] %></p>
+      <p class="folder-updated"><%= folder.size %></p>
+      <div class="folder-buttons">
+        <button type="button" class="folder-share">
+          <img src="/images/share.svg" alt="" class="action-svg" />
+        </button>
+        <form action="/delete/folder/<%=folder.id%>" method="post">
+          <button type="submit">
+            <img src="/images/trash.svg" alt="" class="action-svg" />
+          </button>
+        </form>
+      </div></div
+  ></a>
   <% }) %> <% } else { %>
-  <h1>No folders available.</h1>
+  <div class="no-folders">
+    <p class="message">No folders available.</p>
+  </div>
   <% } %>
 </div>

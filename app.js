@@ -14,6 +14,7 @@ const loginRouter = require("./routes/login");
 const newRouter = require("./routes/new");
 const deleteRouter = require("./routes/delete");
 const folderRouter = require("./routes/folders");
+const uploadRouter = require("./routes/upload");
 
 // Set up views path and ejs view engine
 app.set("views", path.join(__dirname, "views"));
@@ -51,6 +52,7 @@ app.use("/", indexRouter);
 app.use("/signup", signUpRouter);
 app.use("/login", loginRouter);
 app.use("/new", newRouter);
+app.use("/upload", uploadRouter);
 app.use("/delete", deleteRouter);
 app.use("/folder", folderRouter);
 

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>File Uploader</title>
     <link rel="stylesheet" href="/css/folders.css" />
+    <script src="/DOMmanipulation/eventListeners.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -18,7 +19,10 @@
                 <a href="/"><img src="/images/return.svg" class="icon" alt="Go Back"></a>
                 <h1><%=folder.name%></h1>
             </div>
-            <form action="/upload" method="post"><button type="submit" class="upload-btn">Upload</button></form>
+            <form action="/upload/<%= folder.id%>" method="post" enctype="multipart/form-data">
+              <input type="file" name="fileUpload" id="fileUpload" hidden>
+              <button class="upload-btn">Upload</button>
+            </form>
             </div>
             <div class="folder-headers">
                 <div class="header-name">Name</div>

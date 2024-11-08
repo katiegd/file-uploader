@@ -2,8 +2,8 @@ const db = require("../models/queries");
 
 async function newFolderPost(req, res, next) {
   const currentUser = res.locals.currentUser;
-  const name = req.body.newFolder;
   const userId = currentUser.id;
+  const name = req.body.newFolder;
 
   try {
     const existingFolder = await db.existingFolder(userId, name);

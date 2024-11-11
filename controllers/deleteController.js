@@ -14,6 +14,22 @@ async function folderDeletePost(req, res, next) {
   }
 }
 
+async function fileDeletePost(req, res, next) {
+  const currentUser = res.locals.currentUser;
+  const userId = parseInt(currentUser.id);
+  const folderId = parseInt(req.body.folderId);
+  const fileId = parseInt(req.body.fileId);
+
+  try {
+    await db.deleteFile(fileId, folderId, userId);
+    res.redirect(`/folder/${folderId}`);
+  } catch (err) {
+    console.error("Error deleting file.", err);
+    next(err);
+  }
+}
+
 module.exports = {
   folderDeletePost,
+  fileDeletePost,
 };

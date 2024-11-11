@@ -51,8 +51,10 @@ async function findUserId(userId) {
         orderBy: {
           createdAt: "desc",
         },
+        include: {
+          files: true,
+        },
       },
-      files: true,
     },
   });
 }
@@ -118,6 +120,24 @@ async function addFiletoFolder(userId, folderId, name, size) {
   });
 }
 
+async function deleteFile(fileId, folderId, userId) {
+  const file = await prisma.file.findFirst({
+    where: {
+      id: fileId,
+      folderId: folderId,
+      userId: userId,
+    },
+  });
+
+  if (file) {
+    await prisma.file.delete({
+      where: { id: file.id },
+    });
+  } else {
+    throw new Error("File not found or permission denied.");
+  }
+}
+
 module.exports = {
   createUser,
   findUser,
@@ -129,4 +149,5 @@ module.exports = {
   deleteFolder,
 
   addFiletoFolder,
+  deleteFile,
 };

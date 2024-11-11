@@ -44,7 +44,6 @@ app.use(express.urlencoded({ extended: false })); // For form data
 // Current user middleware
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
-  console.log(res.locals.currentUser);
   next();
 });
 

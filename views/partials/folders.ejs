@@ -11,8 +11,8 @@
       <p class="folder-name">
         <img src="/images/folder.svg" class="icon" alt="" /> <%= folder.name %>
       </p>
-      <p class="folder-updated"><%= folderUpdate[index] %></p>
-      <p class="folder-updated"><%= folder.size %></p>
+      <p class="folder-updated"><%= folder.formattedDate %></p>
+      <p class="folder-updated"><%= folder.fileCount %></p>
       <div class="folder-buttons">
         <button type="button" class="folder-share">
           <img src="/images/share.svg" alt="" class="action-svg" />

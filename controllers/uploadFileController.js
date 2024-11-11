@@ -7,12 +7,9 @@ async function uploadFilePost(req, res, next) {
   const name = req.file.filename;
   const size = req.file.size;
 
-  console.log(req.params);
-  console.log("file uploaded", req.file);
-
   await db.addFiletoFolder(userId, folderId, name, size);
 
-  res.send("File Uploaded successfully");
+  res.redirect(`/folder/${folderId}`);
 }
 
 module.exports = {

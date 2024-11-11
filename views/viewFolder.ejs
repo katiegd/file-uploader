@@ -31,7 +31,25 @@
               </div>
             <% if(folder.files && folder.files.length > 0) { %>
                 <% folder.files.map((file, index) => { %>
-                    <h1><%=file.name%></h1>
+                    <div class="folder-item">
+                      <p class="folder-name">
+                        <img src="/images/file.svg" class="icon" alt="" /> <%= file.name %>
+                      </p>
+                      <p class="folder-updated"><%= formattedFile[index].date %></p>
+                      <p class="folder-updated"><%= formattedFile[index].size %></p>
+                      <div class="folder-buttons">
+                        <button type="button" class="folder-share">
+                          <img src="/images/download1.svg" alt="" class="action-svg" />
+                        </button>
+                        <form action="/delete/file/<%=file.id%>" method="post">
+                          <input type="hidden" name="folderId" value="<%= folder.id %>">
+                          <input type="hidden" name="fileId" value="<%= file.id %>">
+                          <button type="submit">
+                            <img src="/images/trash.svg" alt="" class="action-svg" />
+                          </button>
+                        </form>
+                      </div>
+                    </div>
                     <% }) %> <% } else { %>
                         <div class="no-folders">
                           <p class="message">No files available.</p>

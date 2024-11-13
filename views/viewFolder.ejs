@@ -38,9 +38,13 @@
                       <p class="folder-updated"><%= formattedFile[index].date %></p>
                       <p class="folder-updated"><%= formattedFile[index].size %></p>
                       <div class="folder-buttons">
-                        <button type="button" class="folder-share">
-                          <img src="/images/download1.svg" alt="" class="action-svg" />
-                        </button>
+                        <form action="/download/file/<%=file.id%>" method="post">
+                          <input type="hidden" name="folderId" value="<%= folder.id %>">
+                          <input type="hidden" name="fileUrl" value="<%= file.url %>">
+                          <button type="submit" class="folder-share">
+                            <img src="/images/download1.svg" alt="" class="action-svg" />
+                          </button>
+                        </form>
                         <form action="/delete/file/<%=file.id%>" method="post">
                           <input type="hidden" name="folderId" value="<%= folder.id %>">
                           <input type="hidden" name="fileId" value="<%= file.id %>">

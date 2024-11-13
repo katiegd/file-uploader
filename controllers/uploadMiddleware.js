@@ -46,4 +46,21 @@ async function deleteFile(filePath) {
   }
 }
 
-module.exports = { supabase, uploadFile, deleteFile };
+async function downloadFile(filePath) {
+  try {
+    const { data, error } = await supabase.storage
+      .from("file-uploads")
+      .download(filePath);
+
+    if (error) {
+      console.error("Error downloading file.", error);
+      return null;
+    }
+
+    return data;
+  } catch (err) {
+    console.error("Error downloading file.", err);
+  }
+}
+
+module.exports = { supabase, uploadFile, deleteFile, downloadFile };

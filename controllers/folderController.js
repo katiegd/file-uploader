@@ -37,7 +37,6 @@ async function folderGet(req, res, next) {
 
   try {
     const folder = await db.findFolder(folderId, userId);
-    console.log(folder);
     res.render("viewFolder", {
       folder: folder,
       formattedFile: formattedFiles,

@@ -44,6 +44,7 @@
                         <form action="/delete/file/<%=file.id%>" method="post">
                           <input type="hidden" name="folderId" value="<%= folder.id %>">
                           <input type="hidden" name="fileId" value="<%= file.id %>">
+                          <input type="hidden" name="fileUrl" value="<%= file.url %>">
                           <button type="submit">
                             <img src="/images/trash.svg" alt="" class="action-svg" />
                           </button>

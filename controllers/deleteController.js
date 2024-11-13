@@ -1,4 +1,5 @@
 const db = require("../models/queries");
+const middleware = require("../controllers/uploadMiddleware");
 
 async function folderDeletePost(req, res, next) {
   const currentUser = res.locals.currentUser;
@@ -19,9 +20,12 @@ async function fileDeletePost(req, res, next) {
   const userId = parseInt(currentUser.id);
   const folderId = parseInt(req.body.folderId);
   const fileId = parseInt(req.body.fileId);
+  const filePath = req.body.fileUrl;
 
   try {
     await db.deleteFile(fileId, folderId, userId);
+    await middleware.deleteFile(filePath);
+
     res.redirect(`/folder/${folderId}`);
   } catch (err) {
     console.error("Error deleting file.", err);

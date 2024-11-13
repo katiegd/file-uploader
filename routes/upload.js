@@ -1,7 +1,15 @@
 const express = require("express");
 
+const multer = require("multer");
+
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    fileSize: 20000000, //20 MB//
+  },
+});
+
 const route = express.Router();
-const upload = require("../controllers/uploadMiddleware");
 const uploadFileController = require("../controllers/uploadFileController");
 
 route.post(

@@ -51,5 +51,6 @@ model File {
   createdAt DateTime @default(now())
   size     Int
   name      String
+  url       String @default(uuid())
 }
 

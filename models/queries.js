@@ -101,7 +101,7 @@ async function findFolder(folderId, userId) {
   });
 }
 
-async function addFiletoFolder(userId, folderId, name, size) {
+async function addFiletoFolder(userId, folderId, name, size, url) {
   return await prisma.file.create({
     data: {
       user: {
@@ -116,6 +116,7 @@ async function addFiletoFolder(userId, folderId, name, size) {
       },
       name: name,
       size: size,
+      url: url,
     },
   });
 }

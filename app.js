@@ -6,6 +6,7 @@ const passport = require("passport");
 const path = require("node:path");
 
 const app = express();
+require("dotenv").config();
 
 // Set up routers
 const indexRouter = require("./routes/index");
